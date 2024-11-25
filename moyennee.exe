@@ -1,0 +1,40 @@
+def calculer_moyenne():
+    print("=== Calcul de la moyenne (1ère année Bac - Sciences Expérimentales) ===")
+    
+    # Dictionnaire pour les matières et leurs coefficients
+    matieres = {
+        "Mathématiques": 7,
+        "Physique/Chimie": 7,
+        "SVT": 7,
+        "Arabe": 2,
+        "Français": 4,
+        "Anglais": 2,
+        "Histoire/Géo": 2,
+        "Éducation islamique": 2,
+        "Philosophie": 2,
+        "Activité sportive": 1
+    }
+    
+    somme_notes_coef = 0
+    somme_coefs = 0
+
+    # Saisie des notes pour chaque matière
+    for matiere, coef in matieres.items():
+        while True:
+            try:
+                note = float(input(f"Entrez la note de {matiere} (sur 20) : "))
+                if 0 <= note <= 20:
+                    somme_notes_coef += note * coef
+                    somme_coefs += coef
+                    break
+                else:
+                    print("Veuillez entrer une note entre 0 et 20.")
+            except ValueError:
+                print("Entrée invalide. Veuillez entrer un nombre.")
+    
+    # Calcul de la moyenne
+    moyenne = somme_notes_coef / somme_coefs
+    print(f"\nLa moyenne générale est : {moyenne:.2f}/20")
+
+# Appeler la fonction
+calculer_moyenne()
